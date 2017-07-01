@@ -18,6 +18,7 @@ script:
   - pip3 install pexpect
   - python3 test.py
   - mv parser parser_x64
+  - make clean && make build ARCH=x86-64-modern EXE=parser_x64-modern
   - make clean && make build ARCH=x86-32 EXE=parser_x32
   - ls -l
 
@@ -26,6 +27,7 @@ deploy:
   api_key:
     secure: XU3EXURemFEv+zP877mxP1dtZMrwj+kjxep5Imy8zBRIpHKT6KOckk0fqi6Qh8B8YYGPEvdVqzVCuWWC8wuiH0k7tGPWQvrN5gs/S3EYP8B0Wux77xEvZ1G9U3WYONmqg6acleMMDpOjUSTaY3ePXrnwMaPMiyY0r4rgG6I53MUfifRxjlVl6/tNpolHdNAtSbWaqVUvaZyb0hFPtmNOYLzjHumG/hKxdBLbDTc5Cqx23/NqiMo5RMFcRQjaiATaYx7OrJNnLscYUV8sDHACh7sh27o544wXBtcV93vcoAtbsajdGDyS8DM3O91HZXUKa1QhXOTy5/hbR9hofwaa8SMkjCFqR3WS8sHh8H7hs+bDCYj7HW+MuHh5EtUvXLZVnjaeWoz6xIljjAbWkpq/E5LMCkj48tiNFSwoBp9AfQYfqQxj+PoDw2QC/8fNjrY0F98W90RzVLR/g9Q+3FJHt2W9qeRqtqCKN5LXl4ULwinn+iHCY59kdz4yIbcefIX0jdCQqSwel1SGfwRcG5UJba8GoYgjiFV/gl/PKS+iqb1M64Aqq+DvCCA/WtlFyOjFAlzH0clixw1xANawp/FaKHFRTqt1r6QAYOVHDYZpS6tpXijXrQdDsupPrf4z0zZGeNV9c1+5RadE9cexiBpydzIg8WkkECTk4DqecG/23hM=
   file:
+  - parser_x64-modern
   - parser_x64
   - parser_x32
   skip_cleanup: true
