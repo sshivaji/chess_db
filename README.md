@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pychess/chess_db.svg?branch=master)](https://travis-ci.org/pychess/chess_db)
+
 # chess_db
 
 This repo helps index PGN files to polyglot books with the standard moves and weights, but also has Win/Loss/Draw Stats and game_index information.
