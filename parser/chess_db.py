@@ -14,6 +14,7 @@ class Parser:
     def __init__(self, engine=''):
         if not engine:
             engine = './parser'
+        self.engine = engine
         self.p = PopenSpawn(engine, encoding="utf-8")
         self.pgn = ''
         self.db = ''
