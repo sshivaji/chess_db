@@ -841,9 +841,9 @@ void find(std::istringstream& is) {
             is >> token;
             std::stringstream to_size_t(token);
             to_size_t >> limit;
-            if (limit > 3000 || limit < 1)
+            if (limit < 1)
             {
-                std::cerr << "limit must be between 1 and 3000" << std::endl;
+                std::cerr << "limit must be greater than 1" << std::endl;
                 exit(0);
             }
         }
