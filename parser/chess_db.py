@@ -73,9 +73,9 @@ class Parser:
         if not self.db:
             raise NameError("Unknown DB, first open a PGN file")
         cmd = "find {} limit {} skip {} {}".format(self.db, limit, skip, fen)
-        print("cmd: {}".format(cmd))
+        #print("cmd: {}".format(cmd))
         result = subprocess.check_output([self.engine, "find", "{}".format(self.db), "limit", "{}".format(limit), "skip", "{}".format(skip), "{}".format(fen)])
-        print("result: {}".format(result))
+        #print("result: {}".format(result))
         return json.loads(result) 
 
     def get_games(self, list):
