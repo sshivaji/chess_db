@@ -4,6 +4,7 @@ import json
 import os
 import pexpect
 import re
+import subprocess
 from pexpect.popen_spawn import PopenSpawn
 
 PGN_HEADERS_REGEX = re.compile(r"\[([A-Za-z0-9_]+)\s+\"(.*)\"\]")
@@ -65,6 +66,16 @@ class Parser:
         result = json.loads(self.p.before)
         self.p.before = ''
         return result
+
+    def find_large(self, fen, limit=10, skip=0):
+        '''Find all games with positions equal to fen'''
+        if not self.db:
+            raise NameError("Unknown DB, first open a PGN file")
+        cmd = "find {} limit {} skip {} {}".format(self.db, limit, skip, fen)
+        print("cmd: {}".format(cmd))
+        result = subprocess.check_output([self.engine, "find", "{}".format(self.db), "limit", "{}".format(limit), "skip", "{}".format(skip), "{}".format(fen)])
+        print("result: {}".format(result))
+        return json.loads(result) 
 
     def get_games(self, list):
         '''Retrieve the PGN games specified in the offset list'''
