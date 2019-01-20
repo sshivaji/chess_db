@@ -115,7 +115,10 @@ endif
 
 CXXFLAGS += -Wall -Wcast-qual -fno-exceptions -fno-rtti -std=c++11 $(EXTRACXXFLAGS)
 DEPENDFLAGS += -std=c++11
+
 LDFLAGS += $(EXTRALDFLAGS)
+LDFLAGS += -lleveldb
+
 
 ifeq ($(COMP),)
 	COMP=gcc

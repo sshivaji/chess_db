@@ -45,6 +45,10 @@
 #include "position.h"
 #include "uci.h"
 
+#include "leveldb/slice.h"
+#include "leveldb/db.h"
+#include "leveldb/write_batch.h"
+
 namespace {
 
 typedef std::vector<PolyEntry> Keys;
