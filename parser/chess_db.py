@@ -83,11 +83,14 @@ class Parser:
         if not self.pgn:
             raise NameError("Unknown DB, first open a PGN file")
         pgn = []
-        with open(self.pgn, "r") as f:
+        with open(self.pgn, "rb") as f:
             for ofs in list:
                 f.seek(ofs)
                 game = ''
                 for line in f:
+                    line = line.decode('cp1252').encode('utf-8').decode()
+                    # line = line.decode('cp1252').encode('utf-8')
+
                     if line.startswith('[Event "'):
                         if game:
                             break  # Second one, start of next game
